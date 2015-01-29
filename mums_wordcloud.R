@@ -1,3 +1,6 @@
+## Jan 29, 2015
+## Anusha Shankar
+
 ## Load packages
 library(tm)
 library(wordcloud)
