@@ -16,17 +16,16 @@ m.ta <- m.cq_prac[m.cq_prac$variable=="TA Questions",]
 
 ## Create plot for just CQ's
 cqPlot <- ggplot(m.cq, aes(variable,value)) + geom_boxplot(aes(fill = factor(Section))) +  
-  facet_wrap(variable~Section) + theme_bw() + theme(legend.position = "none") + 
+  facet_wrap(~Section, nrow=1) + theme_bw() + theme(legend.position = "none") + 
   scale_fill_brewer(type = "qual",palette = 1) + xlab("CQs") + ylab("Points") +
   theme(text=element_text(family="sans"), axis.title.x = element_text(size=16, vjust=0.2, face="bold"), 
         axis.text.x = element_text(size=12, face="bold"),
         axis.title.y = element_text(size=16, face="bold"), axis.text.y = element_text(size=12)) +
   theme(strip.text.x = element_text(size = 14))
 
-
 ## Create plot for total prac 
 pracPlot <- ggplot(m.ta, aes(variable,value)) + geom_boxplot(aes(fill = factor(Section))) +  
-  facet_wrap(variable~Section) + theme_bw() + theme(legend.position = "none") +
+  facet_wrap(~Section, nrow=1) + theme_bw() + theme(legend.position = "none") +
   scale_fill_brewer(type = "qual",palette = 1) + xlab("Practical totals") + ylab("Points") +
   theme(text=element_text(family="sans"), axis.title.x = element_text(size=16, vjust=0.2, face="bold"), 
         axis.text.x = element_text(size=12, face="bold"),
