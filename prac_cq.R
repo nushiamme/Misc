@@ -15,6 +15,7 @@ m.cq <- m.cq_prac[m.cq_prac$variable=="CQ",]
 m.ta <- m.cq_prac[m.cq_prac$variable=="TA Questions",]
 
 ## Create plot for just CQ's
+ta.list <- c("Shyamie","Stoycho","Mica","David","Abby")
 cqPlot <- ggplot(m.cq, aes(variable,value)) + geom_boxplot(aes(fill = factor(Section))) +  
   facet_wrap(~Section, nrow=1) + theme_bw() + theme(legend.position = "none") + 
   scale_fill_brewer(type = "qual",palette = 1) + xlab("CQs") + ylab("Points") +
@@ -34,3 +35,4 @@ pracPlot <- ggplot(m.ta, aes(variable,value)) + geom_boxplot(aes(fill = factor(S
 
 ## Plot both
 grid.arrange(cqPlot, pracPlot, nrow=2, ncol=1)
+
