@@ -35,4 +35,3 @@ pracPlot <- ggplot(m.ta, aes(variable,value)) + geom_boxplot(aes(fill = factor(S
 
 ## Plot both
 grid.arrange(cqPlot, pracPlot, nrow=2, ncol=1)
-
