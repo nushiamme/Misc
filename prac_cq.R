@@ -1,6 +1,7 @@
 library(ggplot2)
 library(reshape)
 library(gridExtra)
+library(ggmap)
 
 ## Set wd and Read in csv
 setwd("E:\\Toshiba_Desktop\\Stony Brook\\Teaching courses\\Chordate Spring 2015\\Lab Grades")
@@ -37,4 +38,3 @@ pracPlot <- ggplot(m.ta, aes(variable,value)) + geom_boxplot(aes(fill = factor(S
 
 ## Plot both
 grid.arrange(cqPlot, pracPlot, nrow=2, ncol=1)
-
