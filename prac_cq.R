@@ -6,7 +6,7 @@ library(ggmap)
 ## Set wd and Read in csv
 setwd("E:\\Toshiba_Desktop\\Stony Brook\\Teaching courses\\Chordate Spring 2015\\Lab Grades")
 cq_prac <- read.csv("CQ_Prac_comparison.csv")
-cq_prac2 <- read.csv("CQ_Prac2_comparison.csv")
+cq_prac2 <- read.csv("CQ_Prac2_comparison.csv",stringsAsFactors=F)
 names(cq_prac) <- c("Section", "CQ", "Prac1 Total", "TA Questions")
 names(cq_prac2) <- c("Section", "CQ1", "Prac1 Total", "TA1", "CQ2", "Prac2 Total", "TA2")
 
@@ -33,7 +33,7 @@ cqPlot <- ggplot(m.cq, aes(variable, as.numeric(value))) + geom_boxplot(aes(fill
 
 ## Create plot for just TA questions -  PRAC 1
 
-pracPlot <- ggplot(m.ta, aes(variable, as.numeric(value))) + geom_boxplot(aes(fill = factor(Section))) +  
+pracPlot <- ggplot(m.ta, aes(variable, value)) + geom_boxplot(aes(fill = factor(Section))) +  
   geom_point() + facet_wrap(~Section, nrow=1) + theme_bw() + theme(legend.position = "none") +
   scale_fill_brewer(type = "qual",palette = 1) + xlab("TA questions Prac 1") + ylab("Points") +
   scale_x_discrete(labels="") +
@@ -43,7 +43,7 @@ pracPlot <- ggplot(m.ta, aes(variable, as.numeric(value))) + geom_boxplot(aes(fi
   theme(strip.text.x = element_text(size = 14))
 
 ## Create plot for just CQ's - PRAC 2
-cqPlot2 <- ggplot(m.cq2, aes(variable, as.numeric(value))) + geom_boxplot(aes(fill = factor(Section))) +  
+cqPlot2 <- ggplot(m.cq2, aes(variable, as.numeric(as.character(value)))) + geom_boxplot(aes(fill = factor(Section))) +  
   geom_point() + facet_wrap(~Section, nrow=1) + theme_bw() + theme(legend.position = "none") + 
   scale_fill_brewer(type = "qual",palette = 1) + xlab("CQs Prac 2") + ylab("Points") +
   scale_x_discrete(labels="") +
@@ -53,8 +53,7 @@ cqPlot2 <- ggplot(m.cq2, aes(variable, as.numeric(value))) + geom_boxplot(aes(fi
   theme(strip.text.x = element_text(size = 14))
 
 ## Create plot for total prac - PRAC 2
-
-pracPlot2 <- ggplot(m.ta2, aes(variable, as.numeric(value))) + geom_boxplot(aes(fill = factor(Section))) +  
+pracPlot2 <- ggplot(m.ta2, aes(variable, as.numeric(as.character(value)))) + geom_boxplot(aes(fill = factor(Section))) +  
   geom_point() + facet_wrap(~Section, nrow=1) + theme_bw() + theme(legend.position = "none") +
   scale_fill_brewer(type = "qual",palette = 1) + xlab("TA questions Prac 2") + ylab("Points") +
   scale_x_discrete(labels="") +
