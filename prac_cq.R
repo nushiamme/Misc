@@ -20,10 +20,12 @@ m.ta <- m.cq_prac[m.cq_prac$variable=="TA Questions",]
 
 m.cq2 <- m.cq_prac2[m.cq_prac2$variable=="CQ2",]
 m.ta2 <- m.cq_prac2[m.cq_prac2$variable=="TA2",]
+m.cq2 <- m.cq2[,2:4]
+m.ta2 <- m.ta2[,2:4]
 
 
 ## Create plot for just CQ's
-cqPlot <- ggplot(m.cq, aes(variable, as.factor(value))) + geom_boxplot(aes(fill = factor(Section))) +  
+cqPlot <- ggplot(m.cq2, aes(variable, value)) + geom_boxplot(aes(fill = factor(Section))) +  
   facet_wrap(~Section, nrow=1) + theme_bw() + theme(legend.position = "none") + 
   scale_fill_brewer(type = "qual",palette = 1) + xlab("CQs") + ylab("Points") +
   scale_x_discrete(labels="") +
@@ -34,7 +36,7 @@ cqPlot <- ggplot(m.cq, aes(variable, as.factor(value))) + geom_boxplot(aes(fill 
 
 ## Create plot for total prac 
 
-pracPlot <- ggplot(m.ta, aes(variable, as.factor(value))) + geom_boxplot(aes(fill = factor(Section))) +  
+pracPlot <- ggplot(m.ta2, aes(variable, value)) + geom_boxplot(aes(fill = factor(Section))) +  
   facet_wrap(~Section, nrow=1) + theme_bw() + theme(legend.position = "none") +
   scale_fill_brewer(type = "qual",palette = 1) + xlab("Practical totals") + ylab("Points") +
   scale_x_discrete(labels="") +
