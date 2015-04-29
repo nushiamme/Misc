@@ -10,6 +10,8 @@ cq_prac2 <- read.csv("CQ_Prac2_comparison.csv",stringsAsFactors=F)
 names(cq_prac) <- c("Section", "CQ", "Prac1 Total", "TA Questions")
 names(cq_prac2) <- c("Section", "CQ1", "Prac1 Total", "TA1", "CQ2", "Prac2 Total", "TA2")
 
+nhpaper <- 
+
 ## Melt
 m.cq_prac <- melt(cq_prac, measure.vars = c("CQ","Prac1 Total","TA Questions"), na.rm=T)
 m.cq_prac2 <- melt(cq_prac2, id.vars= "Section",measure.vars = c("CQ2","TA1","CQ2", "TA2"), na.rm=T)
@@ -70,3 +72,5 @@ grid.arrange(cqPlot2, pracPlot2, nrow=2, ncol=1)
 
 ## Plot PRAC 1 and PRAC 2
 grid.arrange(cqPlot, cqPlot2, pracPlot, pracPlot2, nrow=2, ncol=2)
+
+nhpaper <- 
