@@ -1,2 +1,2 @@
 # Misc
-I don't know yet.
+Teaching plots and other things
