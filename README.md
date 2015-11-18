@@ -1,2 +1,2 @@
 # Misc
-Teaching plots and other things
+Plots and things
