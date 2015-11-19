@@ -13,3 +13,5 @@ fm1<-lm(y~x,data=dummy,weight=1/w^2)
 attach(dummy)
 plot (x, y)
 lrf <- lowess (x,y)
+rm(fm, fm1, lrf, x, dummy)
+
