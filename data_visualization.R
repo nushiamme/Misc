@@ -3,7 +3,7 @@
 ## April 12, 2016
 
 ## "ggplot" means grammar of graphics
-
+## Useful link: http://docs.ggplot2.org/current/
 
 ## Packages
 library(ggplot2)
